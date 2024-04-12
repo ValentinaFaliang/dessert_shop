@@ -1,0 +1,22 @@
+{
+  "env": {
+    "node": false,
+    "browser": true
+  },
+  "extends": ["plugin:@typescript-eslint/recommended", "plugin:react/recommended", "prettier"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
+  }
+}
