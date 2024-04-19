@@ -1,11 +1,13 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import Carousel from '../Carousel';
+import './Main.css';
 
 export const Main = () => {
   return (
-    <div>
-      <p>Main container</p>
-      <Outlet />
+    <div className="main-block__container">
+      <section className="main-block__carousel">
+        <Carousel />
+      </section>
     </div>
   );
 };

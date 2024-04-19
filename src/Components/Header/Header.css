@@ -1,0 +1,10 @@
+.header__container-logo {
+  grid-column: span 2;
+  align-content: center;
+  padding: 10px;
+}
+
+.header__container-logo-img {
+  height: 60px;
+  mix-blend-mode: multiply;
+}

@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
+
+:root {
+  --black: #011617c0;
+  --white: #f4feff;
+  --blue: #cbf6f9c0;
+  --yellow: #d9e25ccb;
+  --container-width: 1440px;
+  --grid-column-width: 100px;
+  --grid-gap: 20px;
+}
+
+* {
+  all: unset;
+  display: revert;
+}
+
+body {
+  font-family: "Amatic SC", sans-serif;
+  background-color: var(--blue);
+  font-size: 30px;
+  font-weight: 700;
+  overflow: hidden;
+}
+
+.container {
+  padding: 0 20px;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, var(--grid-column-width));
+  gap: var(--grid-gap);
+}
+
+.header {
+  height: fit-content;
+  background-color: var(--white);
+}

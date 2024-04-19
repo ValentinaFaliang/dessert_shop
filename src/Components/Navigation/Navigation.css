@@ -1,0 +1,19 @@
+.navigation {
+  grid-column: 5/9;
+  align-content: center;
+}
+
+.navigation__links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.navigation__links-item {
+  list-style: none;
+  cursor: pointer;
+}
+
+.navigation__links-item:hover {
+  color: var(--yellow);
+}

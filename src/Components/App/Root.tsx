@@ -1,19 +1,23 @@
 import React from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
-import Main from '../Main';
+import { Outlet } from 'react-router-dom';
 
 export const Root = () => {
   return (
     <React.Fragment>
-      <header>
-        <Header />
+      <header className="header">
+        <div className="container">
+          <Header />
+        </div>
       </header>
-      <main>
-        <Main />
+      <main className="main">
+        <Outlet />
       </main>
-      <footer>
-        <Footer />
+      <footer className="footer">
+        <div className="container">
+          <Footer />
+        </div>
       </footer>
     </React.Fragment>
   );
