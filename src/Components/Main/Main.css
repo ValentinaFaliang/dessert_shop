@@ -1,3 +1,14 @@
 .main-block__carousel {
-  width: 100vw;
+  width: 100%;
+  height: fit-content;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-button {
+  z-index: 10;
+  position: absolute;
+  /* top: 48%;
+  left: 44%; */
 }

@@ -15,6 +15,7 @@ export const Carousel = () => {
 
   useEffect(() => {
     const target = trackWidthRef.current;
+    console.log(target);
     const observer = new ResizeObserver((entries) => {
       calcWidthRef.current = entries[0].contentRect.width;
       setTrackWidth(currentSlide.current * calcWidthRef.current);

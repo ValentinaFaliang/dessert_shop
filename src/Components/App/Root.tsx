@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 
 export const Root = () => {
   return (
-    <React.Fragment>
+    <div className="container">
       <header className="header">
         <div className="container">
           <Header />
@@ -19,6 +19,6 @@ export const Root = () => {
           <Footer />
         </div>
       </footer>
-    </React.Fragment>
+    </div>
   );
 };

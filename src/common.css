@@ -1,13 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Knewave&display=swap");
 
 :root {
   --black: #011617c0;
   --white: #f4feff;
   --blue: #cbf6f9c0;
   --yellow: #d9e25ccb;
+  --pink: #e25cb8cb;
+  --dark-pink: #690b4bcb;
+  --for-button: #2faaac;
+  --for-button-hover: #2e3b6b;
   --container-width: 1440px;
-  --grid-column-width: 100px;
-  --grid-gap: 20px;
 }
 
 * {
@@ -20,22 +24,31 @@ body {
   background-color: var(--blue);
   font-size: 30px;
   font-weight: 700;
-  overflow: hidden;
 }
 
 .container {
-  padding: 0 20px;
-  max-width: var(--container-width);
-  margin: 0 auto;
+  width: 100%;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, var(--grid-column-width));
-  gap: var(--grid-gap);
+  grid-template-columns: repeat(12, minmax(min-content, max-content));
 }
 
 .header {
+  width: 100%;
   height: fit-content;
   background-color: var(--white);
+}
+
+.button {
+  cursor: pointer;
+  padding: 10px;
+  background-color: var(--for-button);
+  color: var(--white);
+  font-size: 30px;
+}
+
+.button:hover {
+  background-color: var(--for-button-hover);
 }
