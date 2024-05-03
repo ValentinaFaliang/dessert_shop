@@ -6,7 +6,8 @@
   --black: #011617c0;
   --white: #f4feff;
   --blue: #cbf6f9c0;
-  --yellow: #d9e25ccb;
+  --yellow: #d9e25c;
+  --dark-blue: #20555b;
   --pink: #e25cb8cb;
   --dark-pink: #690b4bcb;
   --for-button: #2faaac;
@@ -32,7 +33,7 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, minmax(min-content, max-content));
+  grid-template-columns: repeat(10, 10%);
 }
 
 .header {

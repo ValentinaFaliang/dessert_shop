@@ -1,5 +1,5 @@
 import React from 'react';
-import zefir1 from './../../assets/menu-items/strawberry_flavour.jpg';
+import zefir1 from './../../assets/menu-items/strawberry_flavour.png';
 import './MenuItem.css';
 
 export const MenuItem = () => {

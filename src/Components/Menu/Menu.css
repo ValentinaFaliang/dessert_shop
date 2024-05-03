@@ -5,16 +5,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .menu-title {
-  padding: 20px;
-  width: 10%;
+  padding: 20px 0;
+  width: 100%;
   background-color: var(--for-button);
   color: var(--white);
   font-size: 40px;
   text-align: center;
-  position: relative;
   z-index: 2;
 }
 
@@ -23,6 +23,7 @@
   font-family: "Comforter Brush", cursive;
   font-size: 38px;
   z-index: 3;
-  top: 83%;
+  top: -28px;
   color: var(--yellow);
+  filter: drop-shadow(0 0 3px var(--dark-blue));
 }
