@@ -1,0 +1,41 @@
+.authorInfo {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.authorInfo__desc {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(6, 16%);
+  align-items: center;
+}
+
+.authorInfo__desc--chef {
+  height: 600px;
+  filter: drop-shadow(20px -20px 0 var(--pink));
+}
+
+.authorInfo__desc--description {
+  grid-column: 3/-1;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    "b b b b b b"
+    "a a a a a a";
+  gap: 30px 0;
+}
+
+h4 {
+  grid-area: b;
+  grid-column: 4/-1;
+  align-self: end;
+  font-size: 50px;
+}
+
+p {
+  align-self: start;
+  grid-area: a;
+}

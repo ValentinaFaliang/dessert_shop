@@ -1,18 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Knewave&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap");
 
 :root {
   --black: #011617c0;
-  --white: #f4feff;
+  --white: #fff;
   --blue: #cbf6f9c0;
   --yellow: #d9e25c;
   --dark-blue: #20555b;
   --pink: #e25cb8cb;
   --dark-pink: #690b4bcb;
-  --for-button: #2faaac;
-  --for-button-hover: #2e3b6b;
+  --for-button: #0c42b7;
+  --for-button-faq: #082053;
+  --for-button-faq-color: #b7c4d6;
+  --for-button-hover: #b87aab;
   --container-width: 1440px;
+  --main-page-color: #dde9fe;
+  --grey: #4c5563;
+  --dark-blue-for-intro: #06183d;
+  --light-grey: #656f88;
 }
 
 * {
@@ -21,10 +25,10 @@
 }
 
 body {
-  font-family: "Amatic SC", sans-serif;
-  background-color: var(--blue);
-  font-size: 30px;
-  font-weight: 700;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-weight: 300;
+  background-color: var(--main-page-color);
+  font-size: 16px;
 }
 
 .container {
@@ -33,23 +37,31 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(10, 10%);
+  grid-template-columns: repeat(15, 1fr);
 }
 
 .header {
   width: 100%;
   height: fit-content;
-  background-color: var(--white);
 }
 
 .button {
   cursor: pointer;
-  padding: 10px;
+  padding: 0 20px;
   background-color: var(--for-button);
   color: var(--white);
-  font-size: 30px;
+  font-size: 16px;
 }
 
 .button:hover {
   background-color: var(--for-button-hover);
+}
+
+.main-title {
+  padding: 20px 0;
+  width: 100%;
+  background-color: var(--for-button);
+  color: var(--white);
+  font-size: 40px;
+  text-align: center;
 }

@@ -1,12 +1,21 @@
 .navigation {
-  grid-column: 4/8;
+  grid-column: 9/14;
   align-content: center;
+}
+
+.button.btn_FAQ {
+  font-size: 20px;
+  background-color: var(--for-button-faq);
+  padding: 7px 20px;
+  color: var(--for-button-faq-color);
 }
 
 .navigation__links {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+  padding: 7px 0;
 }
 
 .navigation__links-item {

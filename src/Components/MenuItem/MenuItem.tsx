@@ -10,7 +10,7 @@ export const MenuItem = () => {
         <figcaption className="menu-item__description">
           <div className="menu-item__title">
             <h3>Original</h3>
-            <h4>zephyr</h4>
+            <h4>3$ per 1 piece</h4>
           </div>
           <p className="menu-item__about">Organic pitaya blended with sprouted chia, bananas, and fresh fruit.</p>
         </figcaption>

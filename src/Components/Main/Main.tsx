@@ -1,16 +1,21 @@
 import React from 'react';
-import Carousel from '../Carousel';
 import './Main.css';
-import Menu from '../Menu';
+import Intro from '../Intro';
+import Carousel from '../Carousel';
+// import Menu from '../Menu';
+// import AuthorInfo from '../AuthorInfo';
 
 export const Main = () => {
   return (
     <div className="main-block__container">
-      <section className="main-block__carousel">
+      <Intro />
+      <Carousel />
+      {/* <section className="main-block__carousel">
         <button className="button carousel-button">View marshmallows</button>
-        <Carousel />
+        
       </section>
       <Menu />
+      <AuthorInfo /> */}
     </div>
   );
 };
