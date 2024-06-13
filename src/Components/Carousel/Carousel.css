@@ -1,19 +1,26 @@
 .carousel-container {
-  width: 100%;
-  height: 150px;
-  display: flex;
-  align-items: center;
+  height: 110px;
   background: var(--white);
-  /* overflow: hidden; */
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .carousel-track {
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-  justify-content: space-around;
+  display: inline-block;
+  animation: 5s animate infinite linear;
 }
 
 .carousel-item {
-  width: 100px;
+  height: 100px;
+  margin: 0 40px;
+}
+
+@keyframes animate {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
 }
