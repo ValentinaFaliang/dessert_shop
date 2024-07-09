@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 :root {
   --black: #011617c0;
@@ -9,14 +10,19 @@
   --pink: #e25cb8cb;
   --dark-pink: #690b4bcb;
   --for-button: #0c42b7;
-  --for-button-faq: #082053;
-  --for-button-faq-color: #b7c4d6;
+  --for-button-dark: #082053;
+  --for-button-dark-color: #b7c4d6;
   --for-button-hover: #b87aab;
   --container-width: 1440px;
   --main-page-color: #dde9fe;
   --grey: #4c5563;
   --dark-blue-for-intro: #06183d;
   --light-grey: #656f88;
+  --teaser-text: #26335d;
+  --teaser-small-text: #7b6f79;
+  --teser-extra-small-text: #7c6f7b;
+  --teaser-super-extra-small-text: #937d9e;
+  --teser2-header: #3f3943;
 }
 
 * {
@@ -51,10 +57,18 @@ body {
   background-color: var(--for-button);
   color: var(--white);
   font-size: 16px;
+  text-align: center;
 }
 
 .button:hover {
   background-color: var(--for-button-hover);
+}
+
+.btn_dark {
+  font-size: 20px;
+  background-color: var(--for-button-dark);
+  padding: 7px 20px;
+  color: var(--for-button-dark-color);
 }
 
 .main-title {

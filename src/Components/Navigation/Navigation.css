@@ -3,13 +3,6 @@
   align-content: center;
 }
 
-.button.btn_FAQ {
-  font-size: 20px;
-  background-color: var(--for-button-faq);
-  padding: 7px 20px;
-  color: var(--for-button-faq-color);
-}
-
 .navigation__links {
   display: flex;
   flex-direction: row;

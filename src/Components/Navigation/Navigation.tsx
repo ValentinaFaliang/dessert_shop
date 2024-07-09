@@ -10,7 +10,7 @@ export const Navigation = () => {
         <li className="navigation__links-item">Products</li>
         <li className="navigation__links-item">Contact</li>
         <li className="navigation__links-item">
-          <button className="button btn_FAQ">FAQ</button>
+          <button className="button btn_dark">FAQ</button>
         </li>
       </ul>
     </nav>

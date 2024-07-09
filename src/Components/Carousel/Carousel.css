@@ -3,6 +3,7 @@
   background: var(--white);
   overflow: hidden;
   white-space: nowrap;
+  padding: 10px 0;
 }
 
 .carousel-track {
