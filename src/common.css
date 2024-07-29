@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Arizonia&display=swap");
 
 :root {
   --black: #011617c0;
@@ -8,6 +9,8 @@
   --yellow: #d9e25c;
   --dark-blue: #20555b;
   --pink: #e25cb8cb;
+  --light-pink: #ffe6f3;
+  --bright-pink: #fcbcdd;
   --dark-pink: #690b4bcb;
   --for-button: #0c42b7;
   --for-button-dark: #082053;
@@ -16,6 +19,7 @@
   --container-width: 1440px;
   --main-page-color: #dde9fe;
   --grey: #4c5563;
+  --grey-transparent: #4c556398;
   --dark-blue-for-intro: #06183d;
   --light-grey: #656f88;
   --teaser-text: #26335d;
@@ -58,6 +62,7 @@ body {
   color: var(--white);
   font-size: 16px;
   text-align: center;
+  border-radius: 4px;
 }
 
 .button:hover {
@@ -69,6 +74,14 @@ body {
   background-color: var(--for-button-dark);
   padding: 7px 20px;
   color: var(--for-button-dark-color);
+}
+
+.btn_white {
+  font-size: 14px;
+  background-color: var(--white);
+  padding: 7px 20px;
+  color: var(--black);
+  border-radius: 20px;
 }
 
 .main-title {

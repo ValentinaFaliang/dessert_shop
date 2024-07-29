@@ -1,0 +1,122 @@
+.productIntro_container {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  background-color: var(--dark-blue-for-intro);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 300px;
+}
+
+.bg_clouds-container {
+  width: 100%;
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+}
+
+.bg_clouds {
+  width: 100px;
+}
+
+.roseCard-container {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 60px 300px 100px;
+  position: absolute;
+  top: 20%;
+  width: 400px;
+  height: fit-content;
+  background: var(--bright-pink);
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.roseCard-titles {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-family: Arizonia, cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 100px;
+    color: var(--teaser-text);
+  }
+
+  h5 {
+    color: var(--for-button);
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+.roseCard-cloud {
+  z-index: 2;
+  position: absolute;
+  top: 20%;
+  width: 300px;
+  filter: drop-shadow(1px 34px 9px var(--grey-transparent));
+}
+
+.left-cloud {
+  left: -40%;
+}
+
+.right-cloud {
+  right: -40%;
+  top: 30%;
+  filter: brightness(0) invert(1) drop-shadow(1px 34px 9px var(--grey-transparent));
+}
+
+.roseCard-buttons {
+  grid-column: 1/-1;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+.btn_bottom {
+  height: 60%;
+  width: 70%;
+  grid-column: 1/-1;
+  grid-row: 3;
+  margin-bottom: 10px;
+}
+
+.learnMore-container {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(var(--dark-blue-for-intro), var(--main-page-color));
+}
+
+.learnMore-titles {
+  width: 44%;
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+
+  h1 {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--for-button);
+  }
+
+  button {
+    width: 130px;
+    height: 45px;
+    margin-top: 30px;
+  }
+}

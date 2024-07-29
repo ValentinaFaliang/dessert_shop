@@ -8,3 +8,7 @@
   height: 48px;
   mix-blend-mode: multiply;
 }
+
+.header__container {
+  background-color: var(--main-page-color);
+}

@@ -1,5 +1,5 @@
 .about-container {
-  background: #ffe6f3;
+  background: var(--light-pink);
 }
 
 .about-extra {

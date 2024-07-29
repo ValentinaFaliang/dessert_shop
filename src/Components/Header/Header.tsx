@@ -5,13 +5,13 @@ import './Header.css';
 
 export const Header = () => {
   return (
-    <div className="header__container grid">
+    <header className="header__container grid">
       <div className="header__container-logo">
         <picture>
           <img className="header__container-logo-img" src={logo} />
         </picture>
       </div>
       <Navigation />
-    </div>
+    </header>
   );
 };

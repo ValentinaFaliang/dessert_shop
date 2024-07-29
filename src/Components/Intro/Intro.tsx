@@ -10,12 +10,6 @@ import './Intro.css';
 export const Intro = () => {
   return (
     <section className="grid intro_container">
-      <div className="intro-pictures_container intro-pictures_container-left">
-        <img className="intro-img-1" src={zefir1} />
-        <img className="intro-img-2" style={{ width: '170px' }} src={zefir2} />
-        <img className="intro-img-3" src={zefir3} />
-      </div>
-
       <div className="intro-text_container">
         <h1>Discover the Sweetness of Zephyr</h1>
         <p>
@@ -23,6 +17,12 @@ export const Intro = () => {
           vibrant colors come together to create an unforgettable experience
         </p>
         <button className="button">Shop Now</button>
+      </div>
+
+      <div className="intro-pictures_container intro-pictures_container-left">
+        <img className="intro-img-1" src={zefir1} />
+        <img className="intro-img-2" style={{ width: '170px' }} src={zefir2} />
+        <img className="intro-img-3" src={zefir3} />
       </div>
 
       <div className="intro-pictures_container intro-pictures_container-right">
