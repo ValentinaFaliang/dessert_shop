@@ -1,12 +1,13 @@
 import React from 'react';
 import cloud from '../../assets/bg/cloud.png';
 import './ProductIntro.css';
+import { Link } from 'react-router-dom';
 
 const imgArr = new Array(10).fill(cloud);
 
 export const ProductIntro = () => {
   return (
-    <section className="productIntro_container">
+    <section id="Products" className="productIntro_container">
       <div className="bg_clouds-container">
         {imgArr.map((cloud, index) => {
           if (index % 2 == 0) {
@@ -41,7 +42,9 @@ export const ProductIntro = () => {
         <img src={cloud} className="roseCard-cloud left-cloud" />
         <img src={cloud} className="roseCard-cloud right-cloud" />
         <div className="roseCard-buttons">
-          <button className="button btn_white">Explore More</button>
+          <button className="button btn_white">
+            <Link to="/menu">Explore More</Link>
+          </button>
           <button className="button btn_white">Discover More</button>
         </div>
         <div className="roseCard-titles">

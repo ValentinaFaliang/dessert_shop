@@ -32,6 +32,8 @@
 * {
   all: unset;
   display: revert;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {

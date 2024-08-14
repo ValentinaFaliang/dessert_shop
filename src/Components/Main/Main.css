@@ -9,6 +9,11 @@
 .carousel-button {
   z-index: 10;
   position: absolute;
+
   /* top: 48%;
   left: 44%; */
+}
+
+.main-block__container {
+  margin-top: 70px;
 }

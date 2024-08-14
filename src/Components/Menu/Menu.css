@@ -1,29 +1,29 @@
 .menu-container {
+  margin-top: 100px;
   width: 100%;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  margin-bottom: 40px;
-}
-
-.menu-title {
-  z-index: 2;
+  display: grid;
+  grid-template:
+    ". . title  . ."
+    "item item item item item "
+    "smth smth smth smth smth";
 }
 
 .menu-paragraph {
-  position: absolute;
-  font-family: "Comforter Brush", cursive;
-  font-size: 38px;
-  z-index: 3;
-  top: -28px;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100px;
-  color: var(--yellow);
-  filter: drop-shadow(0 0 3px var(--dark-blue));
+  grid-area: title;
+  width: 100%;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.menu-items-container {
+  width: 100%;
+  grid-area: item;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu-smth {
+  height: 200px;
+  grid-area: smth;
 }

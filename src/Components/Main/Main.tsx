@@ -4,8 +4,6 @@ import Intro from '../Intro';
 import Carousel from '../Carousel';
 import About from '../About';
 import ProductIntro from '../ProductIntro';
-// import Menu from '../Menu';
-// import AuthorInfo from '../AuthorInfo';
 
 export const Main = () => {
   return (
@@ -14,12 +12,6 @@ export const Main = () => {
       <Carousel />
       <About />
       <ProductIntro />
-      {/* <section className="main-block__carousel">
-        <button className="button carousel-button">View marshmallows</button>
-        
-      </section>
-      <Menu />
-      <AuthorInfo /> */}
     </div>
   );
 };

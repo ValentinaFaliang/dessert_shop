@@ -8,7 +8,7 @@ export const Header = () => {
     <header className="header__container grid">
       <div className="header__container-logo">
         <picture>
-          <img className="header__container-logo-img" src={logo} />
+          <img className="header__container-logo-img" src={logo} onClick={() => window.scrollTo(0, 0)} />
         </picture>
       </div>
       <Navigation />

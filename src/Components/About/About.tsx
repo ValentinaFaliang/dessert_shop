@@ -8,7 +8,7 @@ import AboutBlock from '../AboutBlock';
 
 export const About = () => {
   return (
-    <section className="about-container">
+    <section id="About" className="about-container">
       <AboutBlock
         headerText="Indulge in the Sweetness of Zephyr Marshmallows"
         text1="Elevate Your Senses"

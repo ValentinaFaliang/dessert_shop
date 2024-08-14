@@ -6,7 +6,7 @@
       "always",
       {
         "except": ["first-nested"],
-        "ignore": ["after-comment", "stylelint-commands", "between-comments"]
+        "ignore": ["after-comment", "stylelint-commands"]
       }
     ]
   }

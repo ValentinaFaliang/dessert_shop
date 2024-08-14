@@ -1,12 +1,11 @@
 import React from 'react';
-import { createHashRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Root } from './Root';
-import Menu from '../Menu';
-import AuthorInfo from '../AuthorInfo';
 import Main from '../Main';
+import Menu from '../Menu';
 
 export const App = () => {
-  const router = createHashRouter([
+  const router = createBrowserRouter([
     {
       path: '/',
       element: <Root />,
@@ -18,10 +17,6 @@ export const App = () => {
         {
           path: '/menu',
           element: <Menu />
-        },
-        {
-          path: '/author',
-          element: <AuthorInfo />
         }
       ],
       errorElement: null

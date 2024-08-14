@@ -95,7 +95,7 @@
   width: 100%;
   height: 500px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   flex-direction: column;
   background: linear-gradient(var(--dark-blue-for-intro), var(--main-page-color));

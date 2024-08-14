@@ -23,7 +23,7 @@ export const AboutBlock = ({
   reverse
 }: AboutBlockProps) => {
   return (
-    <div className={reverse ? 'about-teaser-block teaser3' : 'about-teaser-block'}>
+    <div id="About" className={reverse ? 'about-teaser-block teaser3' : 'about-teaser-block'}>
       <div className="text-block">
         {needBtn ? <p className="super-extra-small-text">{smallText}</p> : ''}
         <h2>{headerText}</h2>
