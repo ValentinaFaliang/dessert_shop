@@ -1,5 +1,5 @@
 import React from 'react';
-import zefir1 from './../../assets/menu-items/strawberry_flavour.png';
+import zefir1 from './../../assets/menu-items/zefirka.png';
 import './MenuItem.css';
 
 export const MenuItem = () => {
@@ -12,9 +12,9 @@ export const MenuItem = () => {
             <h3>Original</h3>
             <h4>3$ per 1 piece</h4>
           </div>
-          <p className="menu-item__about">Organic pitaya blended with sprouted chia, bananas, and fresh fruit.</p>
         </figcaption>
       </figure>
+      <button className="button">Add to card</button>
     </section>
   );
 };

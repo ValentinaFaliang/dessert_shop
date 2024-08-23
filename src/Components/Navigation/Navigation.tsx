@@ -25,6 +25,9 @@ export const Navigation = () => {
           );
         })}
         <li className="navigation__links-item">
+          <Link to="/menu">Menu</Link>
+        </li>
+        <li className="navigation__links-item">
           <button className="button btn_dark">FAQ</button>
         </li>
       </ul>

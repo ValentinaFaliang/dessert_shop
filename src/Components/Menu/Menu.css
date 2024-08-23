@@ -19,8 +19,8 @@
 .menu-items-container {
   width: 100%;
   grid-area: item;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .menu-smth {

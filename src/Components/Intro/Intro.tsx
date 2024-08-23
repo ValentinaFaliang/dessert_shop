@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import zefir1 from '../../assets/zephyr-images/zefir1.png';
 import zefir2 from '../../assets/zephyr-images/zefir2.png';
 import zefir3 from '../../assets/zephyr-images/zefir3.png';
@@ -16,7 +17,9 @@ export const Intro = () => {
           Immerse yourself in the world of Zephyr Marshmallow, where the perfect blend of soft, fluffy marshmallows and
           vibrant colors come together to create an unforgettable experience
         </p>
-        <button className="button">Shop Now</button>
+        <button className="button">
+          <Link to="/menu">Shop now</Link>
+        </button>
       </div>
 
       <div className="intro-pictures_container intro-pictures_container-left">
