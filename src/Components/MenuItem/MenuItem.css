@@ -4,16 +4,23 @@
   align-items: center;
 }
 
+.menu-item__image {
+  background-image: url("./../../assets/menu-items/zefirka.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 300px;
+}
+
+.menu-item:hover .menu-item__image {
+  background-image: url("./../../assets/menu-items/nutrions.png.webp");
+}
+
 .menu-item__container {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-}
-
-.menu-item__image {
-  width: 300px;
-  height: auto;
 }
 
 .menu-item__description {
