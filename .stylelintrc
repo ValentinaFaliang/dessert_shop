@@ -1,6 +1,7 @@
 {
   "extends": ["stylelint-config-standard"],
   "rules": {
+    "property-no-vendor-prefix": true,
     "selector-class-pattern": null,
     "comment-empty-line-before": [
       "always",

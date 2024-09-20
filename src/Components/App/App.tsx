@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Root } from './Root';
 import Main from '../Main';
 import Menu from '../Menu';
+import { ItemPage } from '../ItemPage/ItemPage';
 
 export const App = () => {
   const router = createBrowserRouter([
@@ -17,6 +18,10 @@ export const App = () => {
         {
           path: '/menu',
           element: <Menu />
+        },
+        {
+          path: '/item_page',
+          element: <ItemPage />
         }
       ],
       errorElement: null
