@@ -17,3 +17,14 @@
   width: 100%;
   background-color: var(--main-page-color);
 }
+
+.basket-icon {
+  grid-column: 14/-1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 40px;
+  }
+}

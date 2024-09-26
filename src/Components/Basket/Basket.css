@@ -1,0 +1,25 @@
+.basket {
+  z-index: 2000;
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background-color: #00000045;
+  height: 100vh;
+}
+
+.basket-container {
+  height: 96%;
+  background-color: var(--white);
+  width: 35%;
+  border-radius: 20px;
+  margin: 20px 0;
+}
+
+.card-item {
+  img {
+    width: 100px;
+  }
+}
