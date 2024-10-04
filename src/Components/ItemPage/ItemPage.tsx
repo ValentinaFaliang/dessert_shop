@@ -1,9 +1,21 @@
-import React, { ChangeEvent, useState } from 'react';
-import marsh from './../../assets/menu-items/marshmellow_bag.jpg';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import './ItemPage.css';
+import { useLocation } from 'react-router-dom';
+import { getProduct } from '../../services/products';
+import { ProductInfo } from '../../types/products';
 
 export const ItemPage = () => {
+  const { state } = useLocation();
   const [value, setValue] = useState('1');
+  const [productInfo, setProductInfo] = useState<ProductInfo>({} as ProductInfo);
+
+  console.log(productInfo);
+
+  useEffect(() => {
+    getProduct(state.id).then((product) => {
+      setProductInfo(product);
+    });
+  }, []);
   const minus = () => {
     const intValue = Number(value);
     if (intValue > 1) {
@@ -32,10 +44,10 @@ export const ItemPage = () => {
     <section className="itemPage">
       <div className="itemPage__container">
         <div className="itemPage__img-section">
-          <img src={marsh} alt="marsh-img" />
+          <img src={state.img} alt="marsh-img" />
         </div>
         <div className="itemPage__desc-section">
-          <h2>Classic Vanilla Sugar-Free Marshmallow</h2>
+          <h2>{state.title}</h2>
           <div className="itemPage__product-info">
             <p className="product-price">10$</p>
             <div className="itemPage__buttons">
@@ -51,23 +63,17 @@ export const ItemPage = () => {
               <button className="btn_white itemPage__btn-add">Add to cart</button>
             </div>
             <div className="itemPage__marsh-desc">
-              <h3>Description</h3>
-              <p>
-                {`Pack our Mallows with good stuff like collagen, fiber, and MCT oil, yet they remain sugar-free! Toss
-                  them into your coffee, hot cocoa, snack on them quickly, or add them to your baking mix. Indulge in
-                  our marshmallows guilt-free! They boast healthy ingredients and zero sugar. Max shines as a snack or a
-                  delicious boost to your favorite drink, standing out as the first sugar-free marshmallows infused with
-                  these nutritious elements. `}
-              </p>
-              <p>{`Max Mallows Classic Vanilla Sugar-Free Marshmallow is the go-to treat for
-                  anyone reducing sugar intake. Experience their softness, fluffiness, and rich vanilla flavor. Ideal
-                  for the health-conscious, they are free from sugar and gluten, appealing to a broad range of tastes.
-                  Savor their vanilla flavor with various foods or enjoy them solo. `}</p>
-              <p>{`Crafted naturally, without
-                  artificial flavors or colors, they offer reliable quality and taste. Choose these marshmallows when
-                  you crave something sweet yet beneficial. They're perfect for baking, topping, or eating straight
-                  from the bag. Opt for Max Mallows for a delightful sweet experience without the sugar hit, and still
-                  enjoy their excellent taste.`}</p>
+              <h3>Ingredients</h3>
+              <div className="itemPage__ingredients">
+                <ul>
+                  {productInfo?.ingredients?.map((ingrd, index) => (
+                    <li key={index}>{`${ingrd}: ${productInfo.measures[index]}`}</li>
+                  ))}
+                </ul>
+              </div>
+              <h3>How to cook</h3>
+              <p>{productInfo.strInstructions}</p>
+              <iframe width="700" height="400" src={productInfo.strYoutube}></iframe>
             </div>
           </div>
         </div>

@@ -108,3 +108,18 @@
     text-align: justify;
   }
 }
+
+.itemPage__ingredients {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0;
+
+  ul {
+    margin-right: 30px;
+
+    li {
+      list-style-type: none;
+      margin-bottom: 10px;
+    }
+  }
+}
