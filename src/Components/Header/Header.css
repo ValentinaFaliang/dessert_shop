@@ -18,7 +18,7 @@
   background-color: var(--main-page-color);
 }
 
-.basket-icon {
+.Cart-icon {
   grid-column: 14/-1;
   display: flex;
   justify-content: center;

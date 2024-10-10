@@ -1,16 +1,15 @@
 import React, { useRef, useState } from 'react';
 import logo from '../../assets/logo/logo2.png';
 import Navigation from '../Navigation';
-import basketIcon from './../../assets/icons/shopping-bag.png';
+import CartIcon from './../../assets/icons/shopping-bag.png';
 import './Header.css';
 import useOutsideClick from '../../utils/useOutsideClick';
-import Basket from '../Basket';
+import Cart from '../Cart';
 
 export const Header = () => {
-  const [openBasketModal, setOpenbBasketModal] = useState(false);
-  console.log(openBasketModal);
-  const basketRef = useRef<HTMLDivElement>(null);
-  useOutsideClick(basketRef, () => setOpenbBasketModal(false));
+  const [openCartModal, setOpenbCartModal] = useState(false);
+  const CartRef = useRef<HTMLDivElement>(null);
+  useOutsideClick(CartRef, () => setOpenbCartModal(false));
   return (
     <>
       <header className="header__container grid">
@@ -20,15 +19,11 @@ export const Header = () => {
           </picture>
         </div>
         <Navigation />
-        <div className="basket-icon">
-          <img
-            onClick={() => setOpenbBasketModal((openBasketModal) => !openBasketModal)}
-            src={basketIcon}
-            alt="basket logo"
-          />
+        <div className="Cart-icon">
+          <img onClick={() => setOpenbCartModal((openCartModal) => !openCartModal)} src={CartIcon} alt="Cart logo" />
         </div>
       </header>
-      {openBasketModal && <Basket ref={basketRef} />}
+      {openCartModal && <Cart ref={CartRef} />}
     </>
   );
 };

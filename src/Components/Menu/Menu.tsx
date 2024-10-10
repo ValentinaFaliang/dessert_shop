@@ -11,6 +11,7 @@ export const Menu = () => {
       setProductsList(products);
     });
   }, []);
+
   return (
     <section className="menu-container">
       <p className="menu-paragraph">Make all your sweet wishes become true 😋</p>

@@ -1,4 +1,4 @@
-.basket {
+.cart {
   z-index: 2000;
   position: fixed;
   display: flex;
@@ -10,16 +10,10 @@
   height: 100vh;
 }
 
-.basket-container {
+.cart-container {
   height: 96%;
   background-color: var(--white);
   width: 35%;
   border-radius: 20px;
   margin: 20px 0;
-}
-
-.card-item {
-  img {
-    width: 100px;
-  }
 }

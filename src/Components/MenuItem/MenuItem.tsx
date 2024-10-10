@@ -1,6 +1,7 @@
 import React from 'react';
 import './MenuItem.css';
 import { Link } from 'react-router-dom';
+import { AddToCartBtn } from '../Buttons';
 
 export const MenuItem = ({ id, title, img }: any) => {
   return (
@@ -11,12 +12,12 @@ export const MenuItem = ({ id, title, img }: any) => {
           <figcaption className="menu-item__description">
             <div className="menu-item__title">
               <h3>{title}</h3>
-              <h4>3$ per 1 piece</h4>
+              <h4>per 1 piece</h4>
             </div>
           </figcaption>
         </figure>
       </Link>
-      <button className="button">Add to card</button>
+      <AddToCartBtn itemId={id} />
     </section>
   );
 };
