@@ -3,22 +3,27 @@ import './PlusMinusBtn.css';
 import { useAppDispatch, useAppSelector } from '../../store/productSlice/hooks';
 import { decremented, incremented, updateAmount } from '../../store/productSlice';
 
-export const PlusMinusBtn = () => {
-  const count = useAppSelector((state) => state.value);
+type PlusMinusBtn = {
+  id: string;
+};
+
+export const PlusMinusBtn = ({ id }: PlusMinusBtn) => {
+  const count = useAppSelector((state) => state.items);
   const dispatch = useAppDispatch();
+
   return (
     <div className="plus-minus-btn">
       <input
         min="1"
-        max="10"
+        max="11"
         type="number"
-        value={count || ''}
+        value={count[id]?.count || ''}
         onChange={(e) => dispatch(updateAmount(e.target.value))}
       />
-      <button onClick={() => dispatch(decremented())} className="btn-quantity btn-minus" type="button">
+      <button onClick={() => dispatch(decremented({ id }))} className="btn-quantity btn-minus" type="button">
         -
       </button>
-      <button onClick={() => dispatch(incremented())} className="btn-quantity btn-plus" type="button">
+      <button onClick={() => dispatch(incremented({ id }))} className="btn-quantity btn-plus" type="button">
         +
       </button>
     </div>

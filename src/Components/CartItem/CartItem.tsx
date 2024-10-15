@@ -5,15 +5,16 @@ import './CartItem.css';
 type CartItem = {
   img: string;
   title: string;
+  id: string;
 };
 
-export const CartItem = ({ img, title }: CartItem) => {
+export const CartItem = ({ img, title, id }: CartItem) => {
   return (
     <div className="cartItem">
       <img src={img} alt="item-picture" />
       {title}
       <div className="cartItem__quantity">
-        <PlusMinusBtn />
+        <PlusMinusBtn id={id} />
       </div>
     </div>
   );

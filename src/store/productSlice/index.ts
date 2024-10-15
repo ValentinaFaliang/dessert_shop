@@ -1,4 +1,4 @@
-import { createSlice, configureStore, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, configureStore, createAsyncThunk } from '@reduxjs/toolkit';
 import { getProduct } from '../../services/products';
 import { ProductInfo } from '../../types/products';
 
@@ -7,44 +7,63 @@ export const fetchCartData = createAsyncThunk('product/fetchCartData', async (it
   return response;
 });
 
+type ProductWithCount = ProductInfo & {
+  count: number;
+};
+
 interface ProductState {
-  value: number;
-  items: ProductInfo[];
+  items: {
+    [key in string]: ProductWithCount;
+  };
 }
 
 const initialState: ProductState = {
-  value: 1,
-  items: []
+  items: {}
 };
 
 const productSlice = createSlice({
   name: 'product',
   initialState,
   reducers: {
-    incremented: (state) => {
-      if (state.value < 10) {
-        state.value += 1;
+    incremented: (state, { payload }) => {
+      const item = state.items[payload.id];
+      if (!item) {
+        return;
+      }
+      if (item.count < 10) {
+        state.items[payload.id] = { ...item, count: item.count + 1 };
       }
     },
-    decremented: (state) => {
-      if (state.value > 1) {
-        state.value -= 1;
+    decremented: (state, { payload }) => {
+      const item = state.items[payload.id];
+      if (item.count > 1) {
+        state.items[payload.id] = { ...item, count: item.count - 1 };
       }
     },
-    updateAmount: (state, action: PayloadAction<string>) => {
-      const intValue = Number(action.payload);
+    updateAmount: (state, { payload }) => {
+      const item = state.items[payload.id];
+      const intValue = Number(payload);
       if (!intValue) {
-        state.value = 0;
+        state.items[payload.id] = { ...item, count: 0 };
       }
       if (intValue > 0 && intValue < 11) {
-        state.value = intValue;
+        state.items[payload.id] = { ...item, count: intValue };
+      }
+    },
+    addEmptyItem: (state, { payload }) => {
+      console.log({ ...state.items }, payload);
+      if (!state.items[payload.idMeal]) {
+        state.items[payload.idMeal] = { ...payload, count: 1 };
       }
     }
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchCartData.fulfilled, (state, action) => {
-      if (state.items.findIndex((product) => action.payload.idMeal === product.idMeal) === -1) {
-        state.items.push(action.payload);
+    builder.addCase(fetchCartData.fulfilled, (state, { payload }) => {
+      const item = state.items[payload.idMeal];
+      if (item) {
+        state.items[payload.idMeal] = { ...item, count: item.count };
+      } else {
+        state.items[payload.idMeal] = { ...payload, count: 1 };
       }
     });
     builder.addCase(fetchCartData.rejected, (_, action) => {
@@ -53,7 +72,7 @@ const productSlice = createSlice({
   }
 });
 
-export const { incremented, decremented, updateAmount } = productSlice.actions;
+export const { incremented, decremented, updateAmount, addEmptyItem } = productSlice.actions;
 
 export const store = configureStore({
   reducer: productSlice.reducer

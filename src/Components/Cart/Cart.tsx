@@ -6,7 +6,6 @@ import { useAppSelector } from '../../store/productSlice/hooks';
 
 export const Cart = forwardRef<any, any>((_, ref) => {
   const items = useAppSelector((state) => state.items);
-  console.log('cart', items);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -18,8 +17,8 @@ export const Cart = forwardRef<any, any>((_, ref) => {
   return createPortal(
     <section className="cart">
       <div ref={ref} className="cart-container">
-        {items.map((item) => (
-          <CartItem key={item.idMeal} title={item.strMeal} img={item.strMealThumb} />
+        {Object.values(items).map((item) => (
+          <CartItem key={item.idMeal} title={item.strMeal} img={item.strMealThumb} id={item.idMeal} />
         ))}
       </div>
     </section>,
