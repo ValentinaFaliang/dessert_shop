@@ -3,8 +3,7 @@ import './MenuItem.css';
 import { Link } from 'react-router-dom';
 import { AddToCartBtn } from '../Buttons';
 
-export const MenuItem = ({ id, title, img }: any) => {
-  const price = Math.floor(Math.random() * (100 - 2) + 2);
+export const MenuItem = ({ id, title, img, price }: any) => {
   return (
     <section className="menu-item">
       <Link to="/item_page" state={{ id, title, img, price }}>

@@ -1,4 +1,4 @@
-import { AllProductsAPI, Product, ProductInfo } from '../types/products';
+import { AllProductsAPI, ProductInfo } from '../types/products';
 
 const url = 'https://www.themealdb.com/api/json/v1/1/';
 
@@ -33,13 +33,13 @@ export async function getProduct(id?: string) {
   }
 }
 
-export async function getAllProducts(): Promise<Product[]> {
+export async function getAllProducts(): Promise<ProductInfo[]> {
   try {
-    const response = await http<AllProductsAPI<Product>>(`${url}${allProductsURL}`);
+    const response = await http<AllProductsAPI<ProductInfo>>(`${url}${allProductsURL}`);
     return response.meals;
   } catch (error) {
     console.error(error);
-    return {} as Product[];
+    return {} as ProductInfo[];
   }
 }
 

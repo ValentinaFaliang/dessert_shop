@@ -26,7 +26,7 @@ export const AddToCartBtn = ({ long, itemId }: AddToCartBtnProps) => {
         Add to cart
       </button>
 
-      {addToCart && <Cart ref={CartRef} />}
+      {addToCart && <Cart ref={CartRef} itemId={itemId} />}
     </>
   );
 };

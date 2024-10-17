@@ -8,7 +8,7 @@ type PlusMinusBtn = {
 };
 
 export const PlusMinusBtn = ({ id }: PlusMinusBtn) => {
-  const count = useAppSelector((state) => state.items);
+  const count = useAppSelector((state) => state.countPriceInfo);
   const dispatch = useAppDispatch();
 
   return (

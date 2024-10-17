@@ -1,24 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import MenuItem from '../MenuItem';
 import './Menu.css';
-import { getAllProducts } from '../../services/products';
-import { Product } from '../../types/products';
+import { fetchItemsData } from '../../store/productSlice';
+import { useAppDispatch, useAppSelector } from '../../store/productSlice/hooks';
 
 export const Menu = () => {
-  const [productsList, setProductsList] = useState<Product[]>([]);
+  const items = useAppSelector((state) => state.items);
+  const countPrice = useAppSelector((state) => state.countPriceInfo);
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    getAllProducts().then((products) => {
-      setProductsList(products);
-    });
+    dispatch(fetchItemsData());
   }, []);
+  console.log('menu', items, countPrice);
 
   return (
     <section className="menu-container">
       <p className="menu-paragraph">Make all your sweet wishes become true 😋</p>
       <div className="menu-items-container">
-        {productsList.map((product: any) => {
+        {Object.values(items).map((product: any) => {
           return (
-            <MenuItem key={product.idMeal} id={product.idMeal} title={product.strMeal} img={product.strMealThumb} />
+            <MenuItem
+              key={product.idMeal}
+              id={product.idMeal}
+              title={product.strMeal}
+              img={product.strMealThumb}
+              price={countPrice[product.idMeal].price}
+            />
           );
         })}
       </div>
