@@ -2,12 +2,21 @@ import React, { forwardRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import CartItem from '../CartItem';
 import './Cart.css';
-import { useAppSelector } from '../../store/productSlice/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/productSlice/hooks';
+import { countTotalAmount } from '../../store/productSlice';
 
 export const Cart = forwardRef<any, any>(({ itemId }, ref) => {
   const items = useAppSelector((state) => state.cartItems);
   const priceCount = useAppSelector((state) => state.countPriceInfo);
-  console.log('cart', items, priceCount, itemId);
+  const countedPrice = useAppSelector((state) => state.totalAmount);
+  const dispatch = useAppDispatch();
+
+  console.log('cart', countedPrice, itemId);
+
+  useEffect(() => {
+    dispatch(countTotalAmount());
+  }, [priceCount]);
+
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {
@@ -27,6 +36,9 @@ export const Cart = forwardRef<any, any>(({ itemId }, ref) => {
             price={priceCount[item.idMeal].price}
           />
         ))}
+        <div className="cart__price-section">
+          <p>total amount {countedPrice}</p>
+        </div>
       </div>
     </section>,
     document.body

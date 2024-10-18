@@ -24,10 +24,12 @@ type ProductItems = {
 interface ProductState {
   items: ProductItems;
   cartItems: ProductItems;
+  totalAmount: number;
   countPriceInfo: {
     [key in string]: {
       price: number;
       count: number;
+      countedPrice: number;
     };
   };
 }
@@ -35,7 +37,8 @@ interface ProductState {
 const initialState: ProductState = {
   items: {},
   cartItems: {},
-  countPriceInfo: {}
+  countPriceInfo: {},
+  totalAmount: 0
 };
 
 const productSlice = createSlice({
@@ -76,8 +79,27 @@ const productSlice = createSlice({
           price: Math.floor(Math.random() * (100 - 2) + 2)
         };
       }
+    },
+
+    countPrice: (state, { payload }) => {
+      state.countPriceInfo[payload].countedPrice =
+        state.countPriceInfo[payload].price * state.countPriceInfo[payload].count;
+    },
+
+    countTotalAmount: (state) => {
+      const idArr = Object.keys(state.cartItems);
+      const newArrPrices: Array<any> = [];
+      idArr.map((id) => {
+        newArrPrices.push(state.countPriceInfo[id].countedPrice || state.countPriceInfo[id].price);
+      });
+      const result = newArrPrices.reduce((acc, price) => {
+        acc += price;
+        return acc;
+      }, 0);
+      state.totalAmount = result;
     }
   },
+
   extraReducers: (builder) => {
     builder.addCase(fetchCartData.fulfilled, (state, { payload }) => {
       const item = state.cartItems[payload.idMeal];
@@ -96,7 +118,11 @@ const productSlice = createSlice({
       state.items = payload.reduce((acc, item) => {
         acc[item.idMeal as keyof ProductInfo] = item;
         if (!state.countPriceInfo[item.idMeal]) {
-          state.countPriceInfo[item.idMeal] = { count: 1, price: Math.floor(Math.random() * (100 - 2) + 2) };
+          state.countPriceInfo[item.idMeal] = {
+            count: 1,
+            price: Math.floor(Math.random() * (100 - 2) + 2),
+            countedPrice: 0
+          };
         }
         return acc;
       }, {} as ProductItems);
@@ -107,7 +133,8 @@ const productSlice = createSlice({
   }
 });
 
-export const { incremented, decremented, updateAmount, addEmptyItem } = productSlice.actions;
+export const { incremented, decremented, updateAmount, addEmptyItem, countPrice, countTotalAmount } =
+  productSlice.actions;
 
 export const store = configureStore({
   reducer: productSlice.reducer

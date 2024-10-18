@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PlusMinusBtn } from '../Buttons';
 import './CartItem.css';
 import { Link } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../store/productSlice/hooks';
+import { countPrice } from '../../store/productSlice';
 
 type CartItem = {
   img: string;
@@ -11,7 +13,13 @@ type CartItem = {
 };
 
 export const CartItem = ({ img, title, id, price }: CartItem) => {
-  console.log('cartItem', price);
+  const countPriceInfo = useAppSelector((state) => state.countPriceInfo);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(countPrice(id));
+  }, [countPriceInfo[id].count]);
+
   return (
     <div className="cartItem">
       <Link to="/item_page" state={{ id, title, img, price }}>
@@ -21,7 +29,7 @@ export const CartItem = ({ img, title, id, price }: CartItem) => {
       <div className="cartItem__quantity">
         <PlusMinusBtn id={id} />
       </div>
-      <div className="cartItem__price">{price}$</div>
+      <div className="cartItem__price">{countPriceInfo[id].countedPrice || price}$</div>
     </div>
   );
 };
