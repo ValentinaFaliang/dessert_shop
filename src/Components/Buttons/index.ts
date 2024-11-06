@@ -1,3 +1,4 @@
 import { PlusMinusBtn } from './PlusMinusBtn';
 import { AddToCartBtn } from './AddToCartBtn';
-export { AddToCartBtn, PlusMinusBtn };
+import { DeleteFromCartBtn } from './DeleteFromCartBtn';
+export { AddToCartBtn, PlusMinusBtn, DeleteFromCartBtn };

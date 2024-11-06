@@ -97,6 +97,11 @@ const productSlice = createSlice({
         return acc;
       }, 0);
       state.totalAmount = result;
+    },
+
+    deleteCartItem: (state, { payload }) => {
+      delete state.cartItems[payload];
+      state.totalAmount -= state.countPriceInfo[payload].countedPrice;
     }
   },
 
@@ -133,7 +138,7 @@ const productSlice = createSlice({
   }
 });
 
-export const { incremented, decremented, updateAmount, addEmptyItem, countPrice, countTotalAmount } =
+export const { incremented, decremented, updateAmount, addEmptyItem, countPrice, countTotalAmount, deleteCartItem } =
   productSlice.actions;
 
 export const store = configureStore({
