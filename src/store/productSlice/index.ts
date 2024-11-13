@@ -25,6 +25,7 @@ interface ProductState {
   items: ProductItems;
   cartItems: ProductItems;
   totalAmount: number;
+  totalCount: number;
   countPriceInfo: {
     [key in string]: {
       price: number;
@@ -38,7 +39,8 @@ const initialState: ProductState = {
   items: {},
   cartItems: {},
   countPriceInfo: {},
-  totalAmount: 0
+  totalAmount: 0,
+  totalCount: 0
 };
 
 const productSlice = createSlice({
@@ -99,9 +101,23 @@ const productSlice = createSlice({
       state.totalAmount = result;
     },
 
+    countTotalCount: (state) => {
+      const idArr = Object.keys(state.cartItems);
+      const newArrCount: Array<any> = [];
+      idArr.map((id) => {
+        newArrCount.push(state.countPriceInfo[id].count);
+      });
+      const result = newArrCount.reduce((acc, count) => {
+        acc += count;
+        return acc;
+      }, 0);
+      state.totalCount = result;
+    },
+
     deleteCartItem: (state, { payload }) => {
       delete state.cartItems[payload];
       state.totalAmount -= state.countPriceInfo[payload].countedPrice;
+      state.totalCount -= state.countPriceInfo[payload].count;
     }
   },
 
@@ -138,7 +154,8 @@ const productSlice = createSlice({
   }
 });
 
-export const { incremented, decremented, updateAmount, addEmptyItem, countPrice, countTotalAmount, deleteCartItem } =
+
+export const { incremented, decremented, updateAmount, addEmptyItem, countPrice, countTotalAmount, countTotalCount, deleteCartItem } =
   productSlice.actions;
 
 export const store = configureStore({

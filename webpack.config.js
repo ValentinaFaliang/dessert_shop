@@ -47,7 +47,11 @@ module.exports = {
     })
   ],
   devServer: {
-    open: true,
+    open: {
+      app: {
+        name: 'Google Chrome'
+      }
+    },
     historyApiFallback: true
   }
 };

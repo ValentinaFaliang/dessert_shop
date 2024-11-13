@@ -8,7 +8,7 @@ type DeleteFromCartBtnProps = {
 
 export const DeleteFromCartBtn = ({ onDelete }: DeleteFromCartBtnProps) => {
   return (
-    <button onClick={onDelete}>
+    <button onClick={onDelete} className="delete-btn">
       <img src={deleteBtn} alt="delete-btn" />
     </button>
   );

@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import './Navigation.css';
+import { Contact } from '../Contact/Contact';
+
+type ModalState = {
+  open: () => void;
+  close: () => void;
+}
 
 export const Navigation = () => {
-  const links = ['#About', '/#Products', '/#Contact'];
+  const links = ['#About', '/#Products'];
+  const contactModalRef = useRef<ModalState>(null);
+
+  const openModal = () => {
+    contactModalRef.current?.open();
+  }
 
   useEffect(() => {
     return () => window.scrollTo(0, 0);
   }, [window.location.pathname]);
+
   return (
+    <>
     <nav className="navigation">
       <ul className="navigation__links">
         <Link to="/">
@@ -24,6 +37,7 @@ export const Navigation = () => {
             </li>
           );
         })}
+        <li className="navigation__links-item" onClick={openModal}>Contact</li>
         <li className="navigation__links-item">
           <Link to="/menu">Menu</Link>
         </li>
@@ -32,5 +46,7 @@ export const Navigation = () => {
         </li>
       </ul>
     </nav>
+     <Contact ref={contactModalRef} />
+    </>
   );
 };

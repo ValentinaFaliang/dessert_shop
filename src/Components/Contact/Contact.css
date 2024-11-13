@@ -1,0 +1,30 @@
+.contact {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background-color: #00000045;
+    height: 100vh;
+    z-index: 2100;
+}
+
+.contact-container {
+    height: 70%;
+    width: 40%;
+    background-color: var(--bright-pink);
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.contact-container-close{
+    width: 100%;
+    margin-left: 96%;
+    position: relative;
+    font-size: 20px;
+    cursor: pointer;
+}
