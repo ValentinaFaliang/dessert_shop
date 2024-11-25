@@ -1,2 +1,2 @@
-import { AboutBlock } from "./AboutBlock";
+import { AboutBlock } from './AboutBlock';
 export default AboutBlock;

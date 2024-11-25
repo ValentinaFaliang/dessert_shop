@@ -30,7 +30,14 @@ export const AboutBlock = ({
         <h2>{headerText}</h2>
         <p className="extra-small-text">{text1}</p>
         <p className="small-text">{text2}</p>
-        {needBtn ? <button className="button btn_dark"> <Link to="/menu">{buttonText}</Link></button> : ''}
+        {needBtn ? (
+          <button className="button btn_dark">
+            {' '}
+            <Link to="/menu">{buttonText}</Link>
+          </button>
+        ) : (
+          ''
+        )}
       </div>
       <div className="photo-block">
         <img src={picture} alt="teaser" />

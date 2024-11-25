@@ -46,13 +46,16 @@ export const ProductIntro = () => {
             <Link to="/menu">Explore More</Link>
           </button>
           <button className="button btn_white">
-          <Link to="/menu">Discover More</Link></button>
+            <Link to="/menu">Discover More</Link>
+          </button>
         </div>
         <div className="roseCard-titles">
           <h1>Zefir</h1>
           <h5>Olga Volga</h5>
         </div>
-        <button className="button btn_white btn_bottom"><Link to="/menu">Unlock the magic of our desserts right now!</Link></button>
+        <button className="button btn_white btn_bottom">
+          <Link to="/menu">Unlock the magic of our desserts right now!</Link>
+        </button>
       </div>
       <div className="learnMore-container">
         <div className="learnMore-titles">

@@ -7,15 +7,15 @@ import { Contact } from '../Contact/Contact';
 type ModalState = {
   open: () => void;
   close: () => void;
-}
+};
 
 export const Navigation = () => {
-  const links = ['#About', '/#Products'];
+  const links = ['/#About', '/#Products'];
   const contactModalRef = useRef<ModalState>(null);
 
   const openModal = () => {
     contactModalRef.current?.open();
-  }
+  };
 
   useEffect(() => {
     return () => window.scrollTo(0, 0);
@@ -23,30 +23,32 @@ export const Navigation = () => {
 
   return (
     <>
-    <nav className="navigation">
-      <ul className="navigation__links">
-        <Link to="/">
-          <li className="navigation__links-item" onClick={() => window.scrollTo(0, 0)}>
-            Home
-          </li>
-        </Link>
-        {links.map((link) => {
-          return (
-            <li className="navigation__links-item" key={link}>
-              <a href={link}>{link.replace(/\W/g, '')}</a>
+      <nav className="navigation">
+        <ul className="navigation__links">
+          <Link to="/">
+            <li className="navigation__links-item" onClick={() => window.scrollTo(0, 0)}>
+              Home
             </li>
-          );
-        })}
-        <li className="navigation__links-item" onClick={openModal}>Contact</li>
-        <li className="navigation__links-item">
-          <Link to="/menu">Menu</Link>
-        </li>
-        <li className="navigation__links-item">
-          <button className="button btn_dark">FAQ</button>
-        </li>
-      </ul>
-    </nav>
-     <Contact ref={contactModalRef} />
+          </Link>
+          {links.map((link) => {
+            return (
+              <li className="navigation__links-item" key={link}>
+                <a href={link}>{link.replace(/\W/g, '')}</a>
+              </li>
+            );
+          })}
+          <li className="navigation__links-item" onClick={openModal}>
+            Contact
+          </li>
+          <li className="navigation__links-item" onClick={() => window.scrollTo(0, 0)}>
+            <Link to="/menu">Menu</Link>
+          </li>
+          <li className="navigation__links-item">
+            <button className="button btn_dark">FAQ</button>
+          </li>
+        </ul>
+      </nav>
+      <Contact ref={contactModalRef} />
     </>
   );
 };

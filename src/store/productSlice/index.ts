@@ -154,9 +154,16 @@ const productSlice = createSlice({
   }
 });
 
-
-export const { incremented, decremented, updateAmount, addEmptyItem, countPrice, countTotalAmount, countTotalCount, deleteCartItem } =
-  productSlice.actions;
+export const {
+  incremented,
+  decremented,
+  updateAmount,
+  addEmptyItem,
+  countPrice,
+  countTotalAmount,
+  countTotalCount,
+  deleteCartItem
+} = productSlice.actions;
 
 export const store = configureStore({
   reducer: productSlice.reducer

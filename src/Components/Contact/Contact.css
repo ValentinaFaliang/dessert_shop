@@ -1,30 +1,116 @@
 .contact {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    top: 0;
-    right: 0;
-    width: 100%;
-    background-color: #00000045;
-    height: 100vh;
-    z-index: 2100;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background-color: #00000045;
+  height: 100vh;
+  z-index: 2100;
+}
+
+.notification {
+  height: 20%;
+  min-height: 300px;
+  width: 40%;
+  min-width: 400px;
+  background-color: var(--bright-pink);
+  margin-top: 100px;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    color: var(--white);
+    font-size: 30px;
+    font-weight: 700;
+  }
 }
 
 .contact-container {
-    height: 70%;
-    width: 40%;
-    background-color: var(--bright-pink);
-    display: flex;
-    flex-direction: column;
-    margin-top: 100px;
-    border-radius: 20px;
-    padding: 10px;
+  height: 70%;
+  min-height: 500px;
+  width: 40%;
+  min-width: 400px;
+  background-color: var(--bright-pink);
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  border-radius: 20px;
+  padding: 10px;
+
+  h3 {
+    font-size: 25px;
+    font-weight: 700;
+    margin: 0 auto;
+    color: var(--for-button);
+  }
+
+  h4 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 auto;
+    color: var(--dark-pink);
+    font-style: italic;
+  }
 }
 
-.contact-container-close{
-    width: 100%;
-    margin-left: 96%;
-    position: relative;
-    font-size: 20px;
-    cursor: pointer;
+.contact-container-close {
+  width: 100%;
+  margin-left: 96%;
+  position: relative;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+
+  label {
+    margin: 1%;
+  }
+
+  .form-btn {
+    margin-top: 0.8%;
+    width: 40%;
+    height: 40px;
+  }
+
+  input {
+    width: 70%;
+    min-width: 30px;
+    height: 10%;
+    min-height: 30px;
+    background-color: var(--white);
+    border-radius: 5px;
+    padding: 0 5px;
+  }
+
+  input::placeholder {
+    color: var(--bright-pink);
+    padding: 0 5px;
+  }
+
+  textarea {
+    padding: 5px;
+    width: 70%;
+    min-width: 30px;
+    height: 10%;
+    min-height: 60px;
+    max-height: 100px;
+    background-color: var(--white);
+    border-radius: 5px;
+    overflow-y: auto !important;
+  }
+
+  textarea::placeholder {
+    color: var(--bright-pink);
+    padding: 0 5px;
+  }
 }

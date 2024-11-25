@@ -1,2 +1,2 @@
-import { AuthorInfo } from "./AuthorInfo";
+import { AuthorInfo } from './AuthorInfo';
 export default AuthorInfo;

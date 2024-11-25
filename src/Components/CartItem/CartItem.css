@@ -1,5 +1,8 @@
 .cartItem {
+  max-width: calc(100% - 20px);
+  width: 100%;
   display: flex;
+  box-sizing: border-box;
   flex-flow: row wrap;
   place-content: flex-start center;
   align-items: center;
@@ -7,12 +10,10 @@
   border-width: 0 0 1px;
   border-style: solid;
   padding: 10px 0 10px 10px;
-  width: 100%;
 }
 
 .cartItem__first-section {
   flex: 0 0 auto;
-  width: 100px;
 
   img {
     width: 100px;
@@ -21,7 +22,7 @@
 
 .cartItem__second-section {
   flex: 1 1 auto;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: center;
   padding: 0 0 0 20px;
