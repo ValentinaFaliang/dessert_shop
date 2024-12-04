@@ -27,3 +27,12 @@
   height: 200px;
   grid-area: smth;
 }
+
+@media (max-width: 650px) {
+  .menu-items-container {
+    width: 100%;
+    grid-area: item;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

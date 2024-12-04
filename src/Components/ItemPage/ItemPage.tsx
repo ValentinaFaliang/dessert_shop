@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { getProduct } from '../../services/products';
 import { ProductInfo } from '../../types/products';
 import { AddToCartBtn, PlusMinusBtn } from '../Buttons';
-import { useAppDispatch } from '../../store/productSlice/hooks';
+import { useAppDispatch } from '../../store/hooks';
 import { addEmptyItem } from '../../store/productSlice';
 
 const watchURL = 'watch?v=';

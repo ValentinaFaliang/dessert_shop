@@ -24,13 +24,13 @@ export const Intro = () => {
 
       <div className="intro-pictures_container intro-pictures_container-left">
         <img className="intro-img-1" src={zefir1} />
-        <img className="intro-img-2" style={{ width: '170px' }} src={zefir2} />
+        <img className="intro-img-2" src={zefir2} />
         <img className="intro-img-3" src={zefir3} />
       </div>
 
       <div className="intro-pictures_container intro-pictures_container-right">
-        <img className="intro-img-4" style={{ width: '180px' }} src={zefir4} />
-        <img className="intro-img-5" style={{ width: '150px' }} src={zefir5} />
+        <img className="intro-img-4" src={zefir4} />
+        <img className="intro-img-5" src={zefir5} />
         <img className="intro-img-6" src={zefir6} />
       </div>
     </section>

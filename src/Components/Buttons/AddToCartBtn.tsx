@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import './AddToCartBtn.css';
-import Cart from '../Cart';
-import useOutsideClick from '../../utils/useOutsideClick';
-import { useAppDispatch } from '../../store/productSlice/hooks';
+// import Cart from '../Cart';
+import { openModal } from '../../store/modalSlice';
+import { useAppDispatch } from '../../store/hooks';
 import { fetchCartData } from '../../store/productSlice';
 
 interface AddToCartBtnProps {
@@ -11,12 +11,12 @@ interface AddToCartBtnProps {
 }
 
 export const AddToCartBtn = ({ long, itemId }: AddToCartBtnProps) => {
-  const [addToCart, setAddtoCart] = useState(false);
-  const CartRef = useRef<HTMLDivElement>(null);
-  useOutsideClick(CartRef, () => setAddtoCart(false));
+  // const [addToCart, setAddtoCart] = useState(false);
+
   const dispatch = useAppDispatch();
   const handleAddToCart = () => {
-    setAddtoCart(true);
+    dispatch(openModal());
+    // setAddtoCart(true);
     dispatch(fetchCartData(itemId!));
   };
 
@@ -26,7 +26,7 @@ export const AddToCartBtn = ({ long, itemId }: AddToCartBtnProps) => {
         Add to cart
       </button>
 
-      {addToCart && <Cart ref={CartRef} itemId={itemId} />}
+      {/* {addToCart && <Cart />} */}
     </>
   );
 };

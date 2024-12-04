@@ -8,7 +8,13 @@ export const MenuItem = ({ id, title, img, price }: any) => {
     <section className="menu-item">
       <Link to="/item_page" state={{ id, title, img, price }}>
         <figure className="menu-item__container">
-          <img className="menu-item__image" src={img} alt={title} loading="lazy" />
+          <img
+            className="menu-item__image"
+            src={img}
+            alt={title}
+            loading="lazy"
+            onClick={() => window.scrollTo(0, 0)}
+          />
           <figcaption className="menu-item__description">
             <div className="menu-item__title">
               <h3>{title}</h3>

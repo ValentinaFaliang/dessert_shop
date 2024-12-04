@@ -4,32 +4,29 @@
   grid-template-rows: 147px 50px;
   padding: 0 100px;
   margin: 100px 0;
+  overflow: hidden;
+}
+
+.footer-info{
+  text-align: center;
+  grid-column: 1/-1;
+  grid-row: 3;
 }
 
 .footer-logo {
-  grid-column: 1/4;
-  grid-row: 1/3;
+  grid-column: 1/-1;
+  grid-row: 2;
 
   figure {
     height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    figcaption {
-      text-align: center;
-
-      p {
-        color: var(--teaser-text);
-      }
-    }
+    justify-content: center;
   }
 }
 
 .footer-nav {
-  grid-column: 5/-1;
+  grid-column: 1/9;
   grid-row: 1;
-  height: 147px;
 
   ul {
     display: flex;
@@ -57,4 +54,17 @@
 
 .nav-title {
   font-weight: 700;
+}
+
+
+@media (max-width: 1000px) {
+  .footer-container {
+    margin: 20px 0;
+    padding: 0 20px;
+  }
+
+  .footer-nav {
+    grid-column: 1/-1;
+  }
+  
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import './PlusMinusBtn.css';
-import { useAppDispatch, useAppSelector } from '../../store/productSlice/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { decremented, incremented, updateAmount } from '../../store/productSlice';
 
 type PlusMinusBtn = {
@@ -8,7 +8,7 @@ type PlusMinusBtn = {
 };
 
 export const PlusMinusBtn = ({ id }: PlusMinusBtn) => {
-  const count = useAppSelector((state) => state.countPriceInfo);
+  const count = useAppSelector((state) => state.product.countPriceInfo);
   const dispatch = useAppDispatch();
 
   return (

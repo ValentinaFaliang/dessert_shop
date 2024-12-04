@@ -19,3 +19,63 @@
 .navigation__links-item:hover {
   color: var(--pink);
 }
+
+.navigation__close-btn{
+display: none;
+}
+
+@media (max-width: 1000px) {
+  .navigation {
+    z-index: 20000;
+    position: fixed;
+    display: flex;
+    justify-content: end;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background-color: #00000045;
+    height: 100vh;
+  }
+
+  .navigation-for-mobile{
+    height: fit-content;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    width: 50%;
+    z-index: 20001;
+    background-color: var(--main-page-color);
+    padding: 10%;
+  }
+
+  .navigation__close-btn{
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 20001;
+  }
+
+  .navigation__links{
+    flex-direction: column;
+
+    li{
+      font-size: 30px; 
+      margin-top: 20px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .navigation {
+    justify-content: center;
+  }
+
+  .navigation-for-mobile{
+    z-index: 20001;
+    width: 100%;
+  }
+}
+
+
+

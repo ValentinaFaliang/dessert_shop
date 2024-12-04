@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import MenuItem from '../MenuItem';
 import './Menu.css';
 import { fetchItemsData } from '../../store/productSlice';
-import { useAppDispatch, useAppSelector } from '../../store/productSlice/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 export const Menu = () => {
-  const items = useAppSelector((state) => state.items);
-  const countPrice = useAppSelector((state) => state.countPriceInfo);
+  const items = useAppSelector((state) => state.product.items);
+  const countPrice = useAppSelector((state) => state.product.countPriceInfo);
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchItemsData());

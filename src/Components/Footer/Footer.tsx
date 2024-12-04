@@ -5,13 +5,13 @@ import './Footer.css';
 export const Footer = () => {
   return (
     <footer className="footer-container grid">
+      <div className="footer-info">
+        <p>© 2024 Olga Volga Zefir, Inc. </p>
+        <p>All rights reserved.</p>
+      </div>
       <div className="footer-logo">
         <figure>
           <img src={logo} />
-          <figcaption>
-            <p>© 2024 Olga Volga Zefir, Inc. </p>
-            <p>All rights reserved.</p>
-          </figcaption>
         </figure>
       </div>
       <nav className="footer-nav">

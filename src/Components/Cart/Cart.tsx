@@ -1,33 +1,28 @@
-import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import CartItem from '../CartItem';
 import './Cart.css';
-import { useAppDispatch, useAppSelector } from '../../store/productSlice/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { countTotalAmount, countTotalCount } from '../../store/productSlice';
 import { CloseModalBtn } from '../Buttons';
+import { closeModal } from '../../store/modalSlice';
 import useOutsideClick from '../../utils/useOutsideClick';
 
-export const Cart = forwardRef<any, any>((_, ref) => {
-  const items = useAppSelector((state) => state.cartItems);
-  const priceCount = useAppSelector((state) => state.countPriceInfo);
-  const countedPrice = useAppSelector((state) => state.totalAmount);
-  const countedCount = useAppSelector((state) => state.totalCount);
-  const [isOpen, setIsOpen] = useState(false);
+export const Cart = () => {
+  const items = useAppSelector((state) => state.product.cartItems);
+  const priceCount = useAppSelector((state) => state.product.countPriceInfo);
+  const countedPrice = useAppSelector((state) => state.product.totalAmount);
+  const countedCount = useAppSelector((state) => state.product.totalCount);
+  const isModalOpen = useAppSelector((state) => state.modal.isOpen);
+  const dispatch = useAppDispatch();
   const innerRef = useRef(null);
 
-  useOutsideClick(innerRef, () => setIsOpen(false));
-
-  useImperativeHandle(ref, () => {
-    return {
-      open: () => setIsOpen(true),
-      close: () => setIsOpen(false)
-    };
-  });
+  useOutsideClick(innerRef, () => dispatch(closeModal()));
 
   useEffect(() => {
     const close = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setIsOpen(false);
+        dispatch(closeModal());
       }
     };
     window.addEventListener('keydown', close);
@@ -35,15 +30,13 @@ export const Cart = forwardRef<any, any>((_, ref) => {
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
+    if (isModalOpen) {
       document.body.style.overflow = 'hidden';
     }
     return () => {
       document.body.style.overflow = 'scroll';
     };
-  }, [isOpen]);
-
-  const dispatch = useAppDispatch();
+  }, [isModalOpen]);
 
   useEffect(() => {
     dispatch(countTotalAmount());
@@ -53,14 +46,7 @@ export const Cart = forwardRef<any, any>((_, ref) => {
     dispatch(countTotalCount());
   }, [priceCount]);
 
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'scroll';
-    };
-  }, []);
-
-  if (!isOpen) {
+  if (!isModalOpen) {
     return null;
   }
 
@@ -68,7 +54,7 @@ export const Cart = forwardRef<any, any>((_, ref) => {
     <div className="cart__bg">
       <aside className="cart" ref={innerRef}>
         <div className="cart__close-btn">
-          <CloseModalBtn onClick={() => setIsOpen(false)} />
+          <CloseModalBtn onClick={() => dispatch(closeModal())} />
         </div>
         <header className="cart__header">
           <h2>Your Cart</h2>
@@ -98,6 +84,6 @@ export const Cart = forwardRef<any, any>((_, ref) => {
     </div>,
     document.body
   );
-});
+};
 
 Cart.displayName = '';

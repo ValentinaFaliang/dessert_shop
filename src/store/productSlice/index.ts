@@ -1,4 +1,4 @@
-import { createSlice, configureStore, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getAllProducts, getProduct } from '../../services/products';
 import { ProductInfo } from '../../types/products';
 
@@ -11,11 +11,6 @@ export const fetchItemsData = createAsyncThunk('product/fetchItemsData', async (
   const response = await getAllProducts();
   return response;
 });
-
-// type ProductWithCount = ProductInfo & {
-//   count: number;
-//   price: number;
-// };
 
 type ProductItems = {
   [key in string]: ProductInfo;
@@ -165,12 +160,4 @@ export const {
   deleteCartItem
 } = productSlice.actions;
 
-export const store = configureStore({
-  reducer: productSlice.reducer
-});
-
-export type AppStore = typeof store;
-
-export type RootState = ReturnType<AppStore['getState']>;
-
-export type AppDispatch = AppStore['dispatch'];
+export default productSlice.reducer;

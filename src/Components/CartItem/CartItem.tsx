@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { DeleteFromCartBtn, PlusMinusBtn } from '../Buttons';
 import './CartItem.css';
 import { Link } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../store/productSlice/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { countPrice, deleteCartItem } from '../../store/productSlice';
 
 type CartItem = {
@@ -13,7 +13,7 @@ type CartItem = {
 };
 
 export const CartItem = ({ img, title, id, price }: CartItem) => {
-  const countPriceInfo = useAppSelector((state) => state.countPriceInfo);
+  const countPriceInfo = useAppSelector((state) => state.product.countPriceInfo);
   const dispatch = useAppDispatch();
 
   useEffect(() => {

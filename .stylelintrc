@@ -9,6 +9,7 @@
         "except": ["first-nested"],
         "ignore": ["after-comment", "stylelint-commands"]
       }
-    ]
+    ],
+    "media-feature-range-notation": "prefix"
   }
 }

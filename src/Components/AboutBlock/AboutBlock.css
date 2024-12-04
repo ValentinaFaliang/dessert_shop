@@ -43,23 +43,6 @@
   color: var(--teaser-super-extra-small-text);
 }
 
-/* .teaser2 {
-    width: 425px;
-  }
-  
-  h2.teaser2-header {
-    font-size: 29px;
-    color: var(--teaser2-header);
-    padding-top: 22px;
-    font-weight: 500;
-    padding-bottom: 25px;
-  }
-  
-  .teaser2-text {
-    font-size: 18px;
-    padding-bottom: 52px;
-  } */
-
 .photo-block {
   img {
     width: 689px;
@@ -69,4 +52,28 @@
 .teaser3 {
   flex-direction: row-reverse;
   padding: 0;
+}
+
+@media (max-width: 1000px) {
+  .about-teaser-block{
+    padding: 0 20px;
+    flex-flow: column wrap;
+    justify-content: center;
+  }
+
+  .text-block {
+    padding-top: 100px;
+    width: 100%;
+    text-align: center;
+
+    button {
+      margin-bottom: 10px;
+    }
+  }
+
+  .photo-block {
+    img {
+      width: 100%;
+    }
+  }
 }

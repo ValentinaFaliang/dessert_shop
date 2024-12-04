@@ -12,6 +12,7 @@
   grid-template:
     "top top top"
     "bottom bottom bottom";
+    overflow: hidden;
 
   img {
     width: 300px;
@@ -75,6 +76,7 @@
 .intro-img-2 {
   grid-area: bottom;
   grid-column: 1/2;
+  width: '170px' 
 }
 
 .intro-img-3 {
@@ -84,14 +86,46 @@
 .intro-img-4 {
   grid-area: top;
   grid-column: 2;
+  width: '180px'
 }
 
 .intro-img-5 {
   grid-area: middle;
   grid-column: 3;
+  width: '150px'
 }
 
 .intro-img-6 {
   grid-area: bottom;
   grid-column: 2;
+}
+
+@media (max-width: 1250px) {
+  .intro-text_container {
+    h1 {
+   font-size: 40px;
+    }
+  }
+
+  .intro-img-1{
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .intro-pictures_container {
+    img {
+      background-color: transparent;
+      width: 200px;
+    }
+  }
+
+  .intro-text_container {
+    grid-column: 2/15;
+
+    p{
+      text-shadow: 3px 2px 9px var(--white)
+    }
+  }
+
 }
