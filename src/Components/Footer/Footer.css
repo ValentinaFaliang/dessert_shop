@@ -7,7 +7,7 @@
   overflow: hidden;
 }
 
-.footer-info{
+.footer-info {
   text-align: center;
   grid-column: 1/-1;
   grid-row: 3;
@@ -56,7 +56,6 @@
   font-weight: 700;
 }
 
-
 @media (max-width: 1000px) {
   .footer-container {
     margin: 20px 0;
@@ -66,5 +65,4 @@
   .footer-nav {
     grid-column: 1/-1;
   }
-  
 }

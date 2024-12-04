@@ -18,14 +18,14 @@
   mix-blend-mode: multiply;
 }
 
-.burger-header__container{
-grid-column: 1 / -1;
-display: flex;
-align-items: center;
-justify-content: space-between;
+.burger-header__container {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.burger-button{
+.burger-button {
   align-self: center;
   font-size: 40px;
   cursor: pointer;
@@ -41,4 +41,3 @@ justify-content: space-between;
     height: 40px;
   }
 }
-
