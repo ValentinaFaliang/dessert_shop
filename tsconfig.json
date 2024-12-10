@@ -4,6 +4,6 @@
     "esModuleInterop": true,
     "jsx": "react"
   },
-  "include": ["src", "script.tsx"],
+  "include": ["src", "src/script.tsx"],
   "exclude": ["node_modules", "dist"]
 }

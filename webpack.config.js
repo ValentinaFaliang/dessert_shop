@@ -37,7 +37,7 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: './src/index.html'
+      template: './index.html'
     }),
     new EslintWebpackPlugin({
       files: '{**/*,*}.{tsx,ts,js}'
