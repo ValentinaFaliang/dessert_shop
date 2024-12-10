@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import logo from '../../assets/logo/logo2.png';
 import Navigation from '../Navigation';
 import CartIcon from './../../assets/icons/shopping-bag.png';
-import './Header.css';
-// import Cart from '../Cart';
 import { Link } from 'react-router-dom';
 import { useAppDispatch } from '../../store/hooks';
 import { openModal } from '../../store/modalSlice';
+import logo from '../../assets/logo/logo2.png';
+import './Header.css';
 
 export const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -42,7 +41,7 @@ export const Header = () => {
             </div>
             <Navigation onClose={() => setIsBurgerOpen(false)} />
             <div className="cart-icon">
-              <img onClick={() => dispatch(openModal())} src={CartIcon} alt="Cart logo" />
+              <img onClick={() => dispatch(openModal('cart'))} src={CartIcon} alt="Cart logo" />
             </div>
           </>
         ) : (
@@ -55,7 +54,7 @@ export const Header = () => {
               </picture>
             </div>
             <div className="cart-icon">
-              <img onClick={() => dispatch(openModal())} src={CartIcon} alt="Cart logo" />
+              <img onClick={() => dispatch(openModal('cart'))} src={CartIcon} alt="Cart logo" />
             </div>
             <button onClick={toggleBurgerMenu} className="burger-button">
               ☰
@@ -64,7 +63,6 @@ export const Header = () => {
           </div>
         )}
       </header>
-      {/* <Cart /> */}
     </>
   );
 };

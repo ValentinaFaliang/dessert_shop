@@ -84,13 +84,17 @@
   box-sizing: border-box;
 }
 
-.btn_bottom {
+.roseCard-bottom__btn{
   height: 60%;
   width: 70%;
   grid-column: 1/-1;
   grid-row: 3;
   margin-bottom: 10px;
 }
+
+/* .btn_bottom {
+ 
+} */
 
 .learnMore-container {
   width: 100%;

@@ -4,6 +4,8 @@ import { Root } from './Root';
 import Main from '../Main';
 import Menu from '../Menu';
 import { ItemPage } from '../ItemPage/ItemPage';
+import About from '../About';
+import ProductIntro from '../ProductIntro';
 
 export const App = () => {
   const router = createBrowserRouter([
@@ -15,6 +17,8 @@ export const App = () => {
           index: true,
           element: <Main />
         },
+        { path: 'about', element: <About /> },
+        { path: 'products', element: <ProductIntro /> },
         {
           path: '/menu',
           element: <Menu />

@@ -1,27 +1,23 @@
-import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import './Contact.css';
 import { CloseModalBtn } from '../Buttons';
 import useOutsideClick from '../../utils/useOutsideClick';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { closeModal } from '../../store/modalSlice';
 
-export const Contact = forwardRef<any, any>((_, ref) => {
+export const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isFormVisible, setIsFormVisible] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
+  const isModalOpen = useAppSelector((state) => state.modal.isOpenContact);
+  const dispatch = useAppDispatch();
   const innerRef = useRef(null);
-  useOutsideClick(innerRef, () => setIsOpen(false));
-
-  useImperativeHandle(ref, () => {
-    return {
-      open: () => setIsOpen(true),
-      close: () => setIsOpen(false)
-    };
-  });
+  useOutsideClick(innerRef, () => dispatch(closeModal('contact')));
 
   useEffect(() => {
     const close = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setIsOpen(false);
+        dispatch(closeModal('contact'));
       }
     };
     window.addEventListener('keydown', close);
@@ -29,22 +25,21 @@ export const Contact = forwardRef<any, any>((_, ref) => {
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
+    if (isModalOpen) {
       document.body.style.overflow = 'hidden';
     }
     return () => {
       document.body.style.overflow = 'scroll';
     };
-  }, [isOpen]);
+  }, [isModalOpen]);
 
-  if (!isOpen) {
+  if (!isModalOpen) {
     return null;
   }
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     setIsFormVisible(false);
-    setIsOpen(false);
     setIsSubmitted(true);
     setTimeout(() => {
       setIsFormVisible(true);
@@ -56,7 +51,7 @@ export const Contact = forwardRef<any, any>((_, ref) => {
     <div className="contact">
       {isFormVisible && (
         <aside ref={innerRef} className="contact-container">
-          <CloseModalBtn onClick={() => setIsOpen(false)} />
+          <CloseModalBtn onClick={() => dispatch(closeModal('contact'))} />
           <h3>Do you want something special?</h3>
           <h4>Contact us!</h4>
           <form className="contact-form" onSubmit={handleSubmit}>
@@ -101,6 +96,6 @@ export const Contact = forwardRef<any, any>((_, ref) => {
     </div>,
     document.body
   );
-});
+};
 
 Contact.displayName = '';

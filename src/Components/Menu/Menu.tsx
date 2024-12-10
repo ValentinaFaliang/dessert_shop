@@ -11,7 +11,10 @@ export const Menu = () => {
   useEffect(() => {
     dispatch(fetchItemsData());
   }, []);
-  console.log('menu', items, countPrice);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section className="menu-container">

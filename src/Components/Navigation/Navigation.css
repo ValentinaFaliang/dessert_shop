@@ -12,6 +12,7 @@
 }
 
 .navigation__links-item {
+  text-transform: capitalize;
   list-style: none;
   cursor: pointer;
 }

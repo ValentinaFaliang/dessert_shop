@@ -2,27 +2,18 @@ import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import './Navigation.css';
-import { Contact } from '../Contact/Contact';
+// import { Contact } from '../Contact/Contact';
 import { CloseModalBtn } from '../Buttons';
 import useOutsideClick from '../../utils/useOutsideClick';
-
-type ModalState = {
-  open: () => void;
-  close: () => void;
-};
+import { useAppDispatch } from '../../store/hooks';
+import { openModal } from '../../store/modalSlice';
 
 export const Navigation = ({ onClose }: { onClose: () => void }) => {
-  const links = ['/#About', '/#Products'];
-  const contactModalRef = useRef<ModalState>(null);
+  const links = ['about', 'products'];
+  const dispatch = useAppDispatch();
   const innerRef = useRef(null);
 
-  useOutsideClick(innerRef, onClose);
-
-  const openModal = () => {
-    contactModalRef.current?.open();
-  };
-
-  console.log(onClose);
+  useOutsideClick(innerRef, () => onClose());
 
   useEffect(() => {
     const close = (e: KeyboardEvent) => {
@@ -33,6 +24,7 @@ export const Navigation = ({ onClose }: { onClose: () => void }) => {
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
   }, []);
+
   useEffect(() => {
     return () => window.scrollTo(0, 0);
   }, [window.location.pathname]);
@@ -52,12 +44,14 @@ export const Navigation = ({ onClose }: { onClose: () => void }) => {
             </Link>
             {links.map((link) => {
               return (
-                <li className="navigation__links-item" key={link}>
-                  <a href={link}>{link.replace(/\W/g, '')}</a>
-                </li>
+                <Link to={link} key={link}>
+                  <li className="navigation__links-item" key={link}>
+                    {link}
+                  </li>
+                </Link>
               );
             })}
-            <li className="navigation__links-item" onClick={openModal}>
+            <li className="navigation__links-item" onClick={() => dispatch(openModal('contact'))}>
               Contact
             </li>
             <li className="navigation__links-item" onClick={() => window.scrollTo(0, 0)}>
@@ -67,9 +61,9 @@ export const Navigation = ({ onClose }: { onClose: () => void }) => {
               <button className="button btn_dark">FAQ</button>
             </li>
           </ul>
-          <Contact ref={contactModalRef} />
         </div>
       </nav>
+      {/* <Contact /> */}
     </>
   );
 };

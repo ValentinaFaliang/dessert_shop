@@ -42,25 +42,29 @@ export const ProductIntro = () => {
         <img src={cloud} className="roseCard-cloud left-cloud" />
         <img src={cloud} className="roseCard-cloud right-cloud" />
         <div className="roseCard-buttons">
-          <button className="button btn_white">
-            <Link to="/menu">Explore More</Link>
-          </button>
-          <button className="button btn_white">
-            <Link to="/menu">Discover More</Link>
-          </button>
+          <Link to="/menu">
+            <button className="button btn_white">Explore More</button>
+          </Link>
+          <Link to="/menu">
+            <button className="button btn_white">Discover More</button>
+          </Link>
         </div>
         <div className="roseCard-titles">
           <h1>Zefir</h1>
           <h5>Olga Volga</h5>
         </div>
-        <button className="button btn_white btn_bottom">
-          <Link to="/menu">Unlock the magic of our desserts right now!</Link>
-        </button>
+        <div className="roseCard-bottom__btn">
+          <Link to="/menu">
+            <button className="button btn_white">Unlock the magic of our desserts right now!</button>
+          </Link>
+        </div>
       </div>
       <div className="learnMore-container">
         <div className="learnMore-titles">
           <h1>Zephyr Marshmallow: Where Sweetness Meets Artistry</h1>
-          <button className="button">Learn More</button>
+          <Link to="/menu">
+            <button className="button">Learn More</button>
+          </Link>
         </div>
       </div>
     </section>

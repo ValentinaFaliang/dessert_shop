@@ -13,16 +13,16 @@ export const Cart = () => {
   const priceCount = useAppSelector((state) => state.product.countPriceInfo);
   const countedPrice = useAppSelector((state) => state.product.totalAmount);
   const countedCount = useAppSelector((state) => state.product.totalCount);
-  const isModalOpen = useAppSelector((state) => state.modal.isOpen);
+  const isModalOpen = useAppSelector((state) => state.modal.isOpenCart);
   const dispatch = useAppDispatch();
   const innerRef = useRef(null);
 
-  useOutsideClick(innerRef, () => dispatch(closeModal()));
+  useOutsideClick(innerRef, () => dispatch(closeModal('cart')));
 
   useEffect(() => {
     const close = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        dispatch(closeModal());
+        dispatch(closeModal('cart'));
       }
     };
     window.addEventListener('keydown', close);
@@ -54,7 +54,7 @@ export const Cart = () => {
     <div className="cart__bg">
       <aside className="cart" ref={innerRef}>
         <div className="cart__close-btn">
-          <CloseModalBtn onClick={() => dispatch(closeModal())} />
+          <CloseModalBtn onClick={() => dispatch(closeModal('cart'))} />
         </div>
         <header className="cart__header">
           <h2>Your Cart</h2>

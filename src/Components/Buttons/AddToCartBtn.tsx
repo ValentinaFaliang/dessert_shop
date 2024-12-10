@@ -11,12 +11,9 @@ interface AddToCartBtnProps {
 }
 
 export const AddToCartBtn = ({ long, itemId }: AddToCartBtnProps) => {
-  // const [addToCart, setAddtoCart] = useState(false);
-
   const dispatch = useAppDispatch();
   const handleAddToCart = () => {
-    dispatch(openModal());
-    // setAddtoCart(true);
+    dispatch(openModal(''));
     dispatch(fetchCartData(itemId!));
   };
 
@@ -25,8 +22,6 @@ export const AddToCartBtn = ({ long, itemId }: AddToCartBtnProps) => {
       <button className={`button ${long ? 'addToCart_long-btn' : ''}`} onClick={handleAddToCart}>
         Add to cart
       </button>
-
-      {/* {addToCart && <Cart />} */}
     </>
   );
 };

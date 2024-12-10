@@ -1,8 +1,13 @@
 import React from 'react';
 import logo from '../../assets/logo/logo2.png';
 import './Footer.css';
+import { Link } from 'react-router-dom';
+import { useAppDispatch } from '../../store/hooks';
+import { openModal } from '../../store/modalSlice';
 
 export const Footer = () => {
+  const dispatch = useAppDispatch();
+
   return (
     <footer className="footer-container grid">
       <div className="footer-info">
@@ -17,10 +22,14 @@ export const Footer = () => {
       <nav className="footer-nav">
         <ul>
           <li className="nav-title">Quick Links</li>
-          <li>Home</li>
-          <li>Shop</li>
+          <Link to="/">
+            <li onClick={() => window.scrollTo(0, 0)}>Home</li>
+          </Link>
+          <Link to="/Menu">
+            <li>Shop</li>
+          </Link>
           <li>Blog</li>
-          <li>Contact</li>
+          <li onClick={() => dispatch(openModal('contact'))}>Contact</li>
           <li className="nav-title">Explore Zephyr</li>
           <li>About us</li>
           <li>Marshmallow Flavors</li>
